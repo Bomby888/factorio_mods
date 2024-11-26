@@ -1,0 +1,11 @@
+{
+  "name": "cryogenic-plant-productivity",
+  "version": "0.1.3",
+  "title": "Cryogenic plant built-in productivity",
+  "author": "Bomby888",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "base >= 2.0",
+  "space-age >=2.0.0"],
+  "description": "Simple mod rebalancing Cryogenic plants - added base 50% productivity and reduced module slots to 4. If anyone felt like this building stood out amongst the rest of the special- planet buildings. And it doesn't break reactor cooling loop"
+}
