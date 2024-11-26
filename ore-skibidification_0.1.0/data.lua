@@ -9,11 +9,11 @@ local recipe2 = {
   allowed_effects = {
     "productivity"
 },
-  icons = {  -- Poprawne przypisanie
+  icons = {  
     {
       icon = "__ore-skibidification__/graphics/icons/recipe/ore-skibidi.png",
-      icon_size = 64,  -- Możesz dostosować rozmiar ikony
-      tint = {r = 1, g = 0, b = 0, a = 0.3}  -- Kolorowanie ikony
+      icon_size = 64,  
+      tint = {r = 1, g = 2, b = 0, a = 0.3}  
     }
   },
   ingredients = {

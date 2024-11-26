@@ -1,9 +1,10 @@
 {
   "name": "cryogenic-plant-productivity",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "title": "Cryogenic plant built-in productivity",
   "author": "Bomby888",
   "factorio_version": "2.0",
+  "space_travel_required": true,
   "dependencies": [
     "base >= 2.0",
   "space-age >=2.0.0"],
