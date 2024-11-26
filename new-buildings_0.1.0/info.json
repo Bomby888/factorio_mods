@@ -1,0 +1,9 @@
+{
+  "name": "new-buildings",
+  "version": "0.1.0",
+  "title": "Bomby888's add-ons",
+  "author": "Bomby888",
+  "factorio_version": "2.0",
+  "dependencies": ["base >= 2.0"],
+  "description": "to do"
+}
