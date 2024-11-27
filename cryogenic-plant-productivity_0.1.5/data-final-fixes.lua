@@ -12,14 +12,12 @@ end
 local recipe1= data.raw["recipe"]["fluoroketone-cooling"]
 
 if recipe1 then
-    recipe1.allowed_effects={
-        "speed","consumption","polution"
-    }
     recipe1.ingredients = {
-        {type="fluid",name = "fluoroketone-hot", amount=15}
+        {type="fluid",name = "fluoroketone-hot", amount=18}
     }
     recipe1.results = {
-        {type="fluid", name= "fluoroketone-cold", amount = 10}
+        {type="fluid", name= "fluoroketone-cold", amount = 12}
     }
+    recipe1.energy_required=9
     
 end
