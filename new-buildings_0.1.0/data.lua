@@ -1,28 +1,29 @@
-local assembler4= table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
-
-
 
 
 
 data:extend({
-    {
-        type="item",
-        name = "assembling-macchine-4",
-        icons={
-            icon="__new_buildings__/graphics/icons/assmbling-machine-4.png",
-            icon_size=32,
-            tint = {r=0.2,g=0,b=0,a=0}
-        },
-        place_result = "assembling-machine-4",
-        stack_size = 50,
+  {
+    type = "item",
+    name = "assembling-machine-4",
+    icons = {
+        {
+            icon = "__new-buildings__/graphics/icons/assembling-machine-4.png",
+            icon_size = 32,
+            tint = {r = 0.2, g = 0, b = 0, a = 0}
+        }
     },
+    place_result = "assembling-machine-4",
+    stack_size = 50
+  },
     {
         type = "assembling-machine",
         name = "assembling-machine-4",
-        icons={
-            icon="__new_buildings__/graphics/icons/assmbling-machine-4.png",
+        icons={{
+
+            icon="__new-buildings__/graphics/icons/assembling-machine-4.png",
             icon_size=32,
             tint = {r=0.2,g=0,b=0,a=0}
+        }
         },
         flags = { "placeable-neutral", "placeable-player", "player-creation" },
         minable = { mining_time = 0.5, result = "assembling-machine-4" },
@@ -43,45 +44,51 @@ data:extend({
                 percent = 100
             },
             {
-                type = "physicalc",
+                type = "physical",
                 decrease=200,
                 percent = 100
             }
         },
         --skibidi kopiuj wklej
         fluid_boxes = {
-            {
-              production_type = "input",
-              pipe_picture = assembler2pipepictures(),
-              pipe_covers = pipecoverspictures(),
-              base_area = 10,
-              base_level = -1,
-              pipe_connections = { { type = "input", position = { 0, -2 } } },
+          {
+            production_type="input",
+            volume=1000,
+            pipe_picture=assembler3pipepictures(),
+            pipe_covers = pipecoverspictures(),
+            pipe_connections = {
+              {position={0,-1}, direction=defines.direction.north}
             },
+            secondary_draw_orders = {north = -1}
+          }
+      },
+      fluid_boxes_off_when_no_fluid_recipe = true, -- Add this line
+      collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
+      selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
+      fast_replaceable_group = "assembling-machine",
 
-            {
-              production_type = "output",
-              pipe_picture = assembler2pipepictures(),
-              pipe_covers = pipecoverspictures(),
-              base_area = 10,
-              base_level = 1,
-              pipe_connections = { { type = "output", position = { 0, 2 } } },
-            },
-            off_when_no_fluid_recipe = true,
-          },
-        collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
-        selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
-        fast_replaceable_group = "assembling-machine",  
-
-        animation = {
-            filename = "__new_buildings__/graphics/entity/assembling-machine-4/assembling-machine-4.png",
+      pictures={
+        layers={
+            filename = "__new-buildings__/graphics/icons/assembling-machine-4.png",
             priority = "high",
             width = 113,
             height = 99,
             frame_count = 32,
             line_length = 8,
             shift = { 0.4, -0.06 },
+        },
+        {
+          filename = "__new-buildings__/graphics/entity/assembling-machine-4/assembling-machine-4.png",
+          priority = "high",
+          width = 113,
+          height = 99,
+          frame_count = 32,
+          line_length = 8,
+          shift = { 0.4, -0.06 },
+      }
+
           },
+
 
           open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
           close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
@@ -105,28 +112,33 @@ data:extend({
         energy_source = {
           type = "electric",
           usage_priority = "secondary-input",
-          emissions_per_minute = 1.5,
+          emissions_per_minute = {
+            pollution = 96
+          }
         },
 
         energy_usage = "300kW",
     module_specification = {--sprawdzic jak to dziala dokladnie
       module_slots = 8,
-      module_info_icon_shift = { 0, 0.5 },
-      module_info_multi_row_initial_height_modifier = -0.3,
+
     },
     allowed_effects = { "consumption", "speed", "productivity", "pollution" },
+
+    
     },
     {
         type = "recipe",
         name = "assembling-machine-4",
+        category="crafting",
         enabled = true,
-        ingridients={
-            {
-                {type="item", name="assembling-machine-3",amount = 2},
-                {type="item", name="promethium-asteroid-chunk",amount = 5}
-            }
-        },
-        result="assembling-machine-4"
+        ingredients = {
+          {type = "item", name = "assembling-machine-3", amount = 2},
+          {type = "item", name = "promethium-asteroid-chunk", amount = 5}
+      },
+        
+      results = {{type = "item", name = "assembling-machine-4", amount = 1}},
+        auto_recycle = true,
+        
     },
 
     {
@@ -159,13 +171,3 @@ data:extend({
 
 })
 
-
-
-
-local assembler4_recipe =table.deepcopy(data.raw["recipe"]["assembling-machine-3"])
-
-
-assembler4_recipe.energy_required=5
-assembler4_recipe.enabled=true
-
-data:extend{assembler4,assembler4_recipe}
