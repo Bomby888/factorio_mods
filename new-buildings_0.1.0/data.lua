@@ -5,11 +5,13 @@ data:extend({
   {
     type = "item",
     name = "assembling-machine-4",
+    group="production",
+    subgroup="production-machine",
+    order="z-c[assembling-machine-4]",
     icons = {
         {
             icon = "__new-buildings__/graphics/icons/assembling-machine-4.png",
             icon_size = 32,
-            tint = {r = 0.2, g = 0, b = 0, a = 0}
         }
     },
     place_result = "assembling-machine-4",
@@ -18,11 +20,11 @@ data:extend({
     {
         type = "assembling-machine",
         name = "assembling-machine-4",
+        order="z-c[assembling-machine-4]",
         icons={{
 
             icon="__new-buildings__/graphics/icons/assembling-machine-4.png",
             icon_size=32,
-            tint = {r=0.2,g=0,b=0,a=0}
         }
         },
         flags = { "placeable-neutral", "placeable-player", "player-creation" },
@@ -59,35 +61,45 @@ data:extend({
             pipe_connections = {
               {position={0,-1}, direction=defines.direction.north}
             },
-            secondary_draw_orders = {north = -1}
+            secondary_draw_orders = {north = -1},
+          },
+          {
+            production_type="output",
+            volume=1000,
+            pipe_picture=assembler3pipepictures(),
+            pipe_covers = pipecoverspictures(),
+            pipe_connections = {
+              {position={0,1}, direction=defines.direction.south}
+            },
+            secondary_draw_orders = {south = 1},
           }
       },
       fluid_boxes_off_when_no_fluid_recipe = true, -- Add this line
       collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
       selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
       fast_replaceable_group = "assembling-machine",
+      graphics_set=
+      {
+        animation_progress = 0.5,
+        pictures={
+          layers =
+            {
+                {
+                  filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
+                  priority = "high",
+                  width = 110,
+                  height = 99,
+                  frame_count = 32,
+                  line_length = 8,
+                  shift = {0.4, -0.06},
+                  animation_speed = 0.075,
+                  scale = 0.75
+              }
+          }
+          
 
-      pictures={
-        layers={
-            filename = "__new-buildings__/graphics/icons/assembling-machine-4.png",
-            priority = "high",
-            width = 113,
-            height = 99,
-            frame_count = 32,
-            line_length = 8,
-            shift = { 0.4, -0.06 },
-        },
-        {
-          filename = "__new-buildings__/graphics/entity/assembling-machine-4/assembling-machine-4.png",
-          priority = "high",
-          width = 113,
-          height = 99,
-          frame_count = 32,
-          line_length = 8,
-          shift = { 0.4, -0.06 },
-      }
-
-          },
+        }
+      },
 
 
           open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
@@ -130,7 +142,9 @@ data:extend({
         type = "recipe",
         name = "assembling-machine-4",
         category="crafting",
-        enabled = true,
+        group="production",
+        subgroup="production-machine",
+        order="z-c[assembling-machine-4]",
         ingredients = {
           {type = "item", name = "assembling-machine-3", amount = 2},
           {type = "item", name = "promethium-asteroid-chunk", amount = 5}
@@ -170,4 +184,6 @@ data:extend({
       },
 
 })
+
+
 
