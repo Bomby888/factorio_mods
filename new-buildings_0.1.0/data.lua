@@ -81,8 +81,8 @@ data:extend({
       graphics_set=
       {
         animation_progress = 0.5,
-        pictures={
-          layers =
+        animation = {north={
+            layers =
             {
                 {
                   filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
@@ -94,12 +94,12 @@ data:extend({
                   shift = {0.4, -0.06},
                   animation_speed = 0.075,
                   scale = 0.75
-              }
-          }
+              }}
+          }}
+          
           
 
-        }
-      },
+        },
 
 
           open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
