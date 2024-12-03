@@ -85,15 +85,14 @@ data:extend({
             layers =
             {
                 {
-                  filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
+                  filename = "__new-buildings__/graphics/entity/assembling-machine-4/assembling-machine-4.png",
                   priority = "high",
-                  width = 110,
+                  width = 113,
                   height = 99,
                   frame_count = 32,
                   line_length = 8,
                   shift = {0.4, -0.06},
                   animation_speed = 0.075,
-                  scale = 0.75
               }}
           }}
           
