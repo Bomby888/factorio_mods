@@ -1,5 +1,8 @@
 
 
+local no_base_connector_template = util.table.deepcopy(universal_connector_template)
+no_base_connector_template. connector_main   = nil --remove base
+no_base_connector_template. connector_shadow = nil --remove base shadow
 
 data:extend({
   {
